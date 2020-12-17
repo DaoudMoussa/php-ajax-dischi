@@ -1,1 +1,14 @@
+header {
+    height: 70px;
+    background-color: $mainColor;
 
+    .logo-container {
+        height: 100%;
+
+        img {
+            height: 100%;
+            background-color: $secondaryColor;
+            border-radius: 50%;
+        }
+    }
+}

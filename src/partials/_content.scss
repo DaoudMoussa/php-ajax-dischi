@@ -1,0 +1,46 @@
+main {
+    height: calc(100vh - 70px);
+    background-color: lighten($mainColor, 10%);
+    padding: $spacing * 2 0;
+    overflow-y: auto;
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+
+        .card {
+            width: calc(25% - 40px);
+            margin: $spacing;
+            padding: $spacing;
+            background-color: $mainColor;
+            border-radius: 10px;
+            box-shadow: 0 0 1px 2px rgba(0,0,0,0.05);
+
+            .poster-container {
+                padding: 10px;
+
+                img {
+                    width: 100%;
+                    border-radius: 5px;
+                }
+            }
+
+            .song-title {
+                font-size: 18px;
+                margin-top: $spacing / 4;
+            }
+
+            .song-author {
+                font-size: 14px;
+            }
+
+            .song-year {
+                font-size: 12px;
+            }
+
+            *:not(.song-title) {
+                color: darken($textColor, 10%);
+            }
+        }
+    }
+}
