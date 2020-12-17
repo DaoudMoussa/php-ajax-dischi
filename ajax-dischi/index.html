@@ -17,10 +17,18 @@
         </header>
         <main>
             <div class="container">
+                <div class="filter-cntainer">
+                    <span>Genere: </span>
+                    <select id="genres-selector">
+                        <option value="">ALL GENRES</option>
+                    </select>
+                </div>
                 <div class="card-container">
                 </div>
             </div>
         </main>
+
+
         <script id="card-template" type="text/x-handlebars-template">
             <div class="card">
                 <div class="poster-container">
@@ -33,5 +41,8 @@
         </script>
         <script src="public/app.js" charset="utf-8"></script>
 
+        <script id="genres-template" type="text/x-handlebars-template">
+            <option value="{{ genre }}">{{ genre }}</option>
+        </script>
     </body>
 </html>

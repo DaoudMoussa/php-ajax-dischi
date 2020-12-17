@@ -94,31 +94,52 @@
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  var source = $("#card-template").html();
-  var template = Handlebars.compile(source);
+  getAndPrintDischi($('#genres-selector').val(), true);
+  $('#genres-selector').change(function () {
+    getAndPrintDischi($('#genres-selector').val());
+  });
+});
+
+function getAndPrintDischi(genre) {
+  var firstCharge = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var genres = [];
+  var cardSource = $("#card-template").html();
+  var cardTemplate = Handlebars.compile(cardSource);
+  var genreSource = $("#genres-template").html();
+  var genreTemplate = Handlebars.compile(genreSource);
   $.ajax({
     url: '../dischi.php',
     method: 'GET',
     data: {
-      api: true
+      genreFilter: $('#genres-selector').val()
     },
     success: function success(dischi) {
+      $('.card-container').empty();
       dischi.forEach(function (disco) {
-        var context = {
+        var cardContext = {
           posterSource: disco.poster,
           title: disco.title,
           author: disco.author,
           year: disco.year
         };
-        var card = template(context);
+        var card = cardTemplate(cardContext);
         $('.card-container').append(card);
+
+        if (firstCharge && !genres.includes(disco.genre)) {
+          genres.push(disco.genre);
+          var optionContext = {
+            genre: disco.genre
+          };
+          var option = genreTemplate(optionContext);
+          $('#genres-selector').append(option);
+        }
       });
     },
     error: function error() {
       console.log("ERRORE");
     }
   });
-});
+}
 
 /***/ }),
 

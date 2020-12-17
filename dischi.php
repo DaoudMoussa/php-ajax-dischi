@@ -74,8 +74,16 @@ $dischi = [
 ];
 
 if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+    if ($_GET['genreFilter'] != '') {
+        for ($i=count($dischi) - 1; $i >= 0; $i--) {
+            if($dischi[$i]['genre'] != $_GET['genreFilter']) {
+                array_splice($dischi, $i, 1);
+            }
+        }
+    }
     header('Content-Type: application/json');
     echo json_encode($dischi);
+
 }
 
 
