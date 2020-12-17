@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./ajax-dischi/src/app.js":
-/*!********************************!*\
-  !*** ./ajax-dischi/src/app.js ***!
-  \********************************/
+/***/ "./src/app.js":
+/*!********************!*\
+  !*** ./src/app.js ***!
+  \********************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -155,13 +155,13 @@ function getAndPrintDischi(genre) {
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************!*\
-  !*** multi ./ajax-dischi/src/app.js ./src/app.scss ***!
-  \*****************************************************/
+/*!*****************************************!*\
+  !*** multi ./src/app.js ./src/app.scss ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\esercitazioni-backend\3_dicembre\6_php-ajax-dischi\ajax-dischi\src\app.js */"./ajax-dischi/src/app.js");
+__webpack_require__(/*! C:\MAMP\htdocs\esercitazioni-backend\3_dicembre\6_php-ajax-dischi\src\app.js */"./src/app.js");
 module.exports = __webpack_require__(/*! C:\MAMP\htdocs\esercitazioni-backend\3_dicembre\6_php-ajax-dischi\src\app.scss */"./src/app.scss");
 
 

@@ -12,7 +12,7 @@ let mix = require('laravel-mix');
  */
 
 mix.sass('src/app.scss', 'public/');
-mix.js('ajax-dischi/src/app.js', 'ajax-dischi/public/');
+mix.js('src/app.js', 'public/');
 
 // Full API
 // mix.js(src, output);
