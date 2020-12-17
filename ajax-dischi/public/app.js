@@ -93,7 +93,20 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-
+var source = $("#card-template").html();
+var template = Handlebars.compile(source);
+$(document).ready(function () {
+  $.ajax({
+    url: './../../dischi.php',
+    method: 'GET',
+    success: function success() {
+      console.log("ok");
+    },
+    error: function error() {
+      console.log("not ok");
+    }
+  });
+});
 
 /***/ }),
 
