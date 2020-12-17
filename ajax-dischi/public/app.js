@@ -93,17 +93,29 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var source = $("#card-template").html();
-var template = Handlebars.compile(source);
 $(document).ready(function () {
+  var source = $("#card-template").html();
+  var template = Handlebars.compile(source);
   $.ajax({
-    url: './../../dischi.php',
+    url: '../dischi.php',
     method: 'GET',
-    success: function success() {
-      console.log("ok");
+    data: {
+      api: true
+    },
+    success: function success(dischi) {
+      dischi.forEach(function (disco) {
+        var context = {
+          posterSource: disco.poster,
+          title: disco.title,
+          author: disco.author,
+          year: disco.year
+        };
+        var card = template(context);
+        $('.card-container').append(card);
+      });
     },
     error: function error() {
-      console.log("not ok");
+      console.log("ERRORE");
     }
   });
 });
