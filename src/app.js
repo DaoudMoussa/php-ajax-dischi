@@ -17,10 +17,12 @@ function getAndPrintDischi(genre, firstCharge = false) {
     const genreSource = $("#genres-template").html();
     const genreTemplate = Handlebars.compile(genreSource);
 
+    const activeFlter = $('#genres-selector').val();
+
     $.ajax({
         url: '../dischi.php',
         method: 'GET',
-        data: { genreFilter: $('#genres-selector').val() },
+        data: { genreFilter: activeFlter },
         success: function(dischi) {
             $('.card-container').empty();
 

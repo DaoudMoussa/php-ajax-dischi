@@ -107,11 +107,12 @@ function getAndPrintDischi(genre) {
   var cardTemplate = Handlebars.compile(cardSource);
   var genreSource = $("#genres-template").html();
   var genreTemplate = Handlebars.compile(genreSource);
+  var activeFlter = $('#genres-selector').val();
   $.ajax({
     url: '../dischi.php',
     method: 'GET',
     data: {
-      genreFilter: $('#genres-selector').val()
+      genreFilter: activeFlter
     },
     success: function success(dischi) {
       $('.card-container').empty();
